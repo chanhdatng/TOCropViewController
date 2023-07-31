@@ -39,10 +39,11 @@
         CGContextRef context = UIGraphicsGetCurrentContext();
 
         // If we're capturing a circular image, set the clip mask first
-        if (circular) {
-            CGContextAddEllipseInRect(context, (CGRect){CGPointZero, frame.size});
-            CGContextClip(context);
-        }
+        //TODO: - Remove the mask circle to get full square view
+//        if (circular) {
+//            CGContextAddEllipseInRect(context, (CGRect){CGPointZero, frame.size});
+//            CGContextClip(context);
+//        }
 
         // Offset the origin (Which is the top left corner) to start where our cropping origin is
         CGContextTranslateCTM(context, -frame.origin.x, -frame.origin.y);
