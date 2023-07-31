@@ -308,25 +308,28 @@ static const CGFloat kTOCropViewControllerToolbarHeight = 44.0f;
 
     CGRect bounds = view.bounds;
     CGRect frame = CGRectZero;
+    
+    frame.size.height = CGRectGetHeight(bounds);
+    frame.size.width = CGRectGetWidth(bounds);
 
-    // Horizontal layout (eg landscape)
-    if (!verticalLayout) {
-        frame.origin.x = kTOCropViewControllerToolbarHeight + insets.left;
-        frame.size.width = CGRectGetWidth(bounds) - frame.origin.x;
-		frame.size.height = CGRectGetHeight(bounds);
-    }
-    else { // Vertical layout
-        frame.size.height = CGRectGetHeight(bounds);
-        frame.size.width = CGRectGetWidth(bounds);
-
-        // Set Y and adjust for height
-        if (self.toolbarPosition == TOCropViewControllerToolbarPositionBottom) {
-            frame.size.height -= (insets.bottom + kTOCropViewControllerToolbarHeight);
-        } else if (self.toolbarPosition == TOCropViewControllerToolbarPositionTop) {
-			frame.origin.y = kTOCropViewControllerToolbarHeight + insets.top;
-            frame.size.height -= frame.origin.y;
-        }
-    }
+//    // Horizontal layout (eg landscape)
+//    if (!verticalLayout) {
+//        frame.origin.x = kTOCropViewControllerToolbarHeight + insets.left;
+//        frame.size.width = CGRectGetWidth(bounds) - frame.origin.x;
+//		frame.size.height = CGRectGetHeight(bounds);
+//    }
+//    else { // Vertical layout
+//        frame.size.height = CGRectGetHeight(bounds);
+//        frame.size.width = CGRectGetWidth(bounds);
+//
+//        // Set Y and adjust for height
+//        if (self.toolbarPosition == TOCropViewControllerToolbarPositionBottom) {
+//            frame.size.height -= (insets.bottom + kTOCropViewControllerToolbarHeight);
+//        } else if (self.toolbarPosition == TOCropViewControllerToolbarPositionTop) {
+//			frame.origin.y = kTOCropViewControllerToolbarHeight + insets.top;
+//            frame.size.height -= frame.origin.y;
+//        }
+//    }
     
     return frame;
 }
